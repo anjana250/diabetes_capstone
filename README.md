@@ -5,7 +5,8 @@
 ## Executive summary
 
 ### Rationale
-Health and Social Impact
+
+#### Health and Social Impact
 Public Health: Diabetes is a major public health concern, affecting millions of people worldwide. Early prediction and intervention can prevent or delay the onset of diabetes, reducing healthcare costs and improving quality of life.
 
 Preventive Care: By identifying individuals at risk of developing diabetes, healthcare providers can offer targeted preventive measures, such as lifestyle changes or medical interventions, to reduce the likelihood of disease progression.
@@ -14,7 +15,7 @@ Personalized Medicine: Machine learning models can help tailor personalized heal
 
 
 ### Research Question
-"Can we accurately predict the risk of diabetes and prediabetes in individuals using machine learning models based on a set of health indicators and lifestyle factors?"
+**"Can we accurately predict the risk of diabetes and prediabetes in individuals using machine learning models based on a set of health indicators and lifestyle factors?"**
 
 Specific Objectives:
 Prediction Accuracy: How accurately can different machine learning models predict the presence of diabetes or prediabetes using features such as blood pressure, cholesterol levels, BMI, smoking status, physical activity, and dietary habits?
@@ -35,7 +36,7 @@ Data Cleaning: The dataset did not have any missing values but did contain some 
 
 ![distbar](https://github.com/user-attachments/assets/9c22cf17-255d-404e-8550-dd1a53528e8a)
 
-This is the distribution of the dataset prior to upsampling.
+This is the distribution of the dataset prior to upsampling. After upsampling we have a balanced dataset.
 
 #### 2. Feature Engineering
 Feature Selection: All of the features in the dataset were included in the analysis. Preprossing was done for all of the columns except the binary. 
@@ -61,7 +62,7 @@ Feature Selection: All of the features in the dataset were included in the analy
 
 ![catcomp](https://github.com/user-attachments/assets/c82e9cb5-4a0a-4b0a-84de-c105a0cd9a72)
 
- The initial inferences are confirmed by this plot.
+ The initial inferences are confirmed by this plot and it is clear to see that the data is imbalanced.
 
 #### 3. Machine Learning Models
 A baseline accuracy was obtained and the following models were then implemented.
