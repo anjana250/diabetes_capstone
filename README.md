@@ -44,6 +44,7 @@ A baseline accuracy was obtained and the following models were then implemented.
  3. K-Nearest Neighbors (KNN): A non-parametric model that classifies based on the majority class of the nearest neighbors.
  4. Random Forest: An ensemble model using multiple decision trees to improve classification performance.
  5. Decision Tree: A tree-based model that splits data based on feature values to make predictions.
+ 6. Neural Network: A deep learning model designed to capture complex patterns and interactions in the data. It consists of multiple layers (dense and dropout layers) and is optimized using hyperparameter tuning to improve performance.
 
 4. Model Evaluation and Hyperparameter Tuning
 Grid Search with Cross-Validation: Tuning hyperparameters for each model to optimize performance. Using 5-fold/ 3-fold cross-validation ensures that the model generalizes well to unseen data. 
@@ -60,26 +61,49 @@ Feature Importance Plots: Visualizing the importance of different features as de
 
 #### Results
 
-![comparison_metrics](https://github.com/anjana250/capstone/assets/15185723/08a97141-f585-4bf5-8113-607f2f6e8775)
+![comparison_metrics](https://github.com/user-attachments/assets/6a41c0fc-d8ec-4032-b2d7-eddaba83f0d1)
 
 
 Random Forest did the best on all the metrics except for Recall. KNN did the best for recall. Since Random Forest seems to have performed the best overall, the recommendations will be made using this model.
 
 
-#### Observations from Feature Importance:
-1. Factors that increase likelihood of diabetes:
-    1. Cholestoral Check: Those that have cheked their cholestoral in the last 5 years are more likely to be diabetic.
-    2. High Blood Pressure and High Cholesterol: Patients who have high blood pressure or high cholesterol are more likely to have prediabetes/diabetes.
-    3. General Health: Those that have poor general health are more likely to have prediabetes/diabetes.
-    
-2. Factors that decrease likelihood of diabetes:
-    1. Eating Fruits and Vegetables decreases the likelihood of getting diabetes!
-    2. Physical activity decreases the likelihood.
-    
-    
-#### Conclusion:
-Individuals who already have other conditions such as High Blood Pressure, High Cholestoral, Mental Health issues are more likely to be prediabetic/diabetic. It is important for those individuals to get early intervention. Factors that could improve an individuals chances of not getting diabetes is eating more fruits and vegetables and being more active.
+### Random Forest Performance Analysis
+**1. Performance Metrics:**
 
+Random Forest vs. KNN Recall: KNN achieved the highest recall, indicating that it was more successful in identifying all relevant cases of diabetes (i.e., true positives). This is important for applications where missing a positive case (false negative) can have serious consequences.
+Overall Performance: Despite KNN’s higher recall, Random Forest outperformed KNN on other metrics like precision, accuracy, and the ROC AUC score. This suggests that while Random Forest might be slightly less sensitive in identifying every positive case, it generally provides a more balanced and reliable performance across different metrics.
+
+**2. Reasons for Random Forest's Strong Performance:**
+
+Ensemble Learning: Random Forest is an ensemble method that combines the predictions of multiple decision trees. This approach helps to reduce overfitting and improves generalization by averaging the predictions from several models.
+Feature Importance: Random Forest can evaluate feature importance, which helps to understand which features are most predictive of the outcome. This is particularly useful for understanding the factors contributing to diabetes risk.
+Robustness to Noise: Random Forest is less sensitive to noise in the data compared to single decision trees. The aggregation of multiple trees helps in reducing the effect of outliers and noise.
+Handling of Non-Linearity: Random Forest can capture complex, non-linear relationships between features and the target variable, which might be missed by simpler models like Logistic Regression.
+
+**3. Observations from Feature Importance**
+
+Factors Increasing Likelihood of Diabetes:
+
+1. Cholesterol Check: Regular cholesterol checks may indicate an awareness or management of health conditions that could be associated with diabetes. If individuals have checked their cholesterol, it might be due to existing health issues, including diabetes.
+2. High Blood Pressure and High Cholesterol: These conditions are well-known risk factors for diabetes. They often co-occur with diabetes and contribute to its development.
+3. General Health: Poor general health is a broad indicator that can encompass multiple health issues, including diabetes. Individuals reporting poor health may be more likely to have diabetes.
+
+Factors Decreasing Likelihood of Diabetes:
+
+1. Eating Fruits and Vegetables: A diet rich in fruits and vegetables is associated with lower risks of chronic diseases, including diabetes. These foods are high in fiber and nutrients that can help regulate blood sugar levels.
+2. Physical Activity: Regular physical activity is crucial for maintaining a healthy weight and improving insulin sensitivity, both of which reduce the risk of diabetes.
+
+### Conclusion and Recommendations
+
+**4. Conclusion:**
+
+Risk Factors: Individuals with high blood pressure, high cholesterol, or poor general health are at a higher risk for diabetes. Monitoring and managing these conditions is crucial for early detection and prevention.
+Preventive Measures: Encouraging a diet rich in fruits and vegetables and promoting regular physical activity can help reduce the risk of diabetes. These lifestyle changes are beneficial for individuals at risk and the general population.
+Recommendations:
+
+Early Intervention: For individuals with known risk factors such as high blood pressure or cholesterol, regular screenings and early interventions are recommended to prevent the onset of diabetes.
+Lifestyle Modifications: Implement programs or initiatives focused on improving diet and increasing physical activity. This could include public health campaigns, community fitness programs, and nutritional counseling.
+Regular Monitoring: Encourage regular health check-ups and screenings for those with risk factors, to track their health status and intervene promptly if needed.
 
 #### Next steps
 
