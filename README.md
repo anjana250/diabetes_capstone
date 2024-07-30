@@ -34,9 +34,27 @@ This dataset pertains to patient health indicators and includes both demographic
 Data Cleaning: The dataset did not have any missing values but did contain some duplicates. Those were removed. It was observed that there was a huge disparity in the target column for the minority class (individuals with diabetes or prediabetes). To compensate for this, we did Data Resampling. This addressed the impalance by upsampling the minority class to match the number of samples in majority class.
 
 
+
 2. Feature Engineering
 Feature Selection: All of the features in the dataset were included in the analysis. Preprossing was done for all of the columns except the binary. 
 
+![heatmap](https://github.com/user-attachments/assets/e81626de-d430-484d-acbc-02676d5e578c)
+
+**Features that increased the likelihood of a Patient being Diabetic or Prediabetic**
+ 1. Patients with High Blood Pressure.
+ 2. Patients with High Cholesterol.
+ 3. Patients with High BMI.
+ 4. Patients with Low General Health.
+ 5. Patients who were unable to go to the doctor in the last 12 months due to cost.
+ 6. Patients who have difficulty walking.
+ 7. Patients who are reported smokers.
+
+**Features that decreased the likelihood of a Patient being Diabetic or Prediabetic**
+ 1. Patients with higher income.
+ 2. Patients with mor education.
+ 3. Patients who are physically active.
+ 4. Patients who ate more fruits and vegetables.
+   
 3. Machine Learning Models
 A baseline accuracy was obtained and the following models were then implemented.
  1. Logistic Regression: A linear model for binary classification
@@ -75,12 +93,12 @@ Overall Performance: Despite KNN’s higher recall, Random Forest outperformed K
 
 **2. Reasons for Random Forest's Strong Performance:**
 
-Ensemble Learning: Random Forest is an ensemble method that combines the predictions of multiple decision trees. This approach helps to reduce overfitting and improves generalization by averaging the predictions from several models.
-Feature Importance: Random Forest can evaluate feature importance, which helps to understand which features are most predictive of the outcome. This is particularly useful for understanding the factors contributing to diabetes risk.
-Robustness to Noise: Random Forest is less sensitive to noise in the data compared to single decision trees. The aggregation of multiple trees helps in reducing the effect of outliers and noise.
-Handling of Non-Linearity: Random Forest can capture complex, non-linear relationships between features and the target variable, which might be missed by simpler models like Logistic Regression.
+Random Forest is an ensemble method that combines the predictions of multiple decision trees. This approach helps to reduce overfitting and improves generalization by averaging the predictions from several models. Random Forest can evaluate feature importance, which helps to understand which features are most predictive of the outcome. This is particularly useful for understanding the factors contributing to diabetes risk. Random Forest is less sensitive to noise in the data compared to single decision trees. The aggregation of multiple trees helps in reducing the effect of outliers and noise. Random Forest can capture complex, non-linear relationships between features and the target variable, which might be missed by simpler models like Logistic Regression. Evidence of non linear relationships to target variable was evident in features such as age.
 
 **3. Observations from Feature Importance**
+
+![feature_rf](https://github.com/user-attachments/assets/1e39672a-a871-411a-9d1d-9ba308190da7)
+
 
 Factors Increasing Likelihood of Diabetes:
 
@@ -111,9 +129,11 @@ Regular Monitoring: Encourage regular health check-ups and screenings for those 
 
 2. Model Stacking: Combine predictions from multiple models (e.g., Logistic Regression, SVM, Random Forest) to create a meta-model that can improve overall predictive performance.
 
-3. Model Evaluation and Validation: ROC and AUC: Use ROC (Receiver Operating Characteristic) curves and AUC (Area Under the Curve) scores to evaluate and compare model performance more comprehensively.
+3. Ethical Considerations: Bias and Fairness: Evaluate your models for potential biases and ensure fairness across different demographic groups. Consider techniques to mitigate any identified biases.
+   
+4. User-Friendly Interface:Develop a user-friendly interface or dashboard for end-users to interact with the model, visualize predictions, and gain insights from the data.
 
-4. Ethical Considerations: Bias and Fairness: Evaluate your models for potential biases and ensure fairness across different demographic groups. Consider techniques to mitigate any identified biases.
+5. Continuous Learning: Implement a system for continuous learning where the model can be retrained periodically with new data to adapt to any changes and maintain accuracy.
 
 #### Outline of project
 
