@@ -1,10 +1,10 @@
-### Predictive Modeling of Diabetes Risk Factors
+## Predictive Modeling of Diabetes Risk Factors
 
 **Anjana Cox**
 
-#### Executive summary
+## Executive summary
 
-#### Rationale
+### Rationale
 Health and Social Impact
 Public Health: Diabetes is a major public health concern, affecting millions of people worldwide. Early prediction and intervention can prevent or delay the onset of diabetes, reducing healthcare costs and improving quality of life.
 
@@ -13,7 +13,7 @@ Preventive Care: By identifying individuals at risk of developing diabetes, heal
 Personalized Medicine: Machine learning models can help tailor personalized healthcare plans based on an individual's unique risk factors, leading to more effective and efficient treatment strategies.
 
 
-#### Research Question
+### Research Question
 "Can we accurately predict the risk of diabetes and prediabetes in individuals using machine learning models based on a set of health indicators and lifestyle factors?"
 
 Specific Objectives:
@@ -23,19 +23,21 @@ Model Comparison: Which machine learning model (Logistic Regression, SVM, KNN, R
 
 Feature Importance: Which health indicators and lifestyle factors are most significant in predicting diabetes risk, as identified by the machine learning models?
 
-#### Data Sources
+### Data Sources
 [The dataset can be found here.](https://www.archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators). 
 
 This dataset pertains to patient health indicators and includes both demographic and health-related features. Each entry is uniquely identified by a patient ID (ID). The primary target variable, Diabetes_binary, indicates the presence of diabetes or prediabetes. Various binary features capture health conditions and behaviors, such as high blood pressure (HighBP), high cholesterol (HighChol), smoking history (Smoker), history of stroke (Stroke), and coronary heart disease or myocardial infarction (HeartDiseaseorAttack). Additional features track physical activity (PhysActivity), dietary habits (Fruits and Veggies), heavy alcohol consumption (HvyAlcoholConsump), and access to healthcare (AnyHealthcare, NoDocbcCost). General health status is assessed using a scale (GenHlth), and mental and physical health issues are quantified by the number of days affected in the past month (MentHlth, PhysHlth). The dataset also includes information on difficulties with walking (DiffWalk) and the sex of the patient (Sex). All these features are essential for analyzing and predicting diabetes risk, with no missing values reported.
 
-#### Methodology
+### Methodology
 
-1. Data Preprocessing
+#### 1. Data Preprocessing
 Data Cleaning: The dataset did not have any missing values but did contain some duplicates. Those were removed. It was observed that there was a huge disparity in the target column for the minority class (individuals with diabetes or prediabetes). To compensate for this, we did Data Resampling. This addressed the impalance by upsampling the minority class to match the number of samples in majority class.
 
+![distbar](https://github.com/user-attachments/assets/9c22cf17-255d-404e-8550-dd1a53528e8a)
 
+This is the distribution of the dataset prior to upsampling.
 
-2. Feature Engineering
+#### 2. Feature Engineering
 Feature Selection: All of the features in the dataset were included in the analysis. Preprossing was done for all of the columns except the binary. 
 
 ![heatmap](https://github.com/user-attachments/assets/e81626de-d430-484d-acbc-02676d5e578c)
@@ -49,13 +51,19 @@ Feature Selection: All of the features in the dataset were included in the analy
  6. Patients who have difficulty walking.
  7. Patients who are reported smokers.
 
+
 **Features that decreased the likelihood of a Patient being Diabetic or Prediabetic**
  1. Patients with higher income.
  2. Patients with mor education.
  3. Patients who are physically active.
  4. Patients who ate more fruits and vegetables.
-   
-3. Machine Learning Models
+
+
+![catcomp](https://github.com/user-attachments/assets/c82e9cb5-4a0a-4b0a-84de-c105a0cd9a72)
+
+ The initial inferences are confirmed by this plot.
+
+#### 3. Machine Learning Models
 A baseline accuracy was obtained and the following models were then implemented.
  1. Logistic Regression: A linear model for binary classification
  2. Support Vector Machine (SVM): A model that finds the optimal hyperplane for separating classes.
@@ -64,11 +72,11 @@ A baseline accuracy was obtained and the following models were then implemented.
  5. Decision Tree: A tree-based model that splits data based on feature values to make predictions.
  6. Neural Network: A deep learning model designed to capture complex patterns and interactions in the data. It consists of multiple layers (dense and dropout layers) and is optimized using hyperparameter tuning to improve performance.
 
-4. Model Evaluation and Hyperparameter Tuning
+#### 4. Model Evaluation and Hyperparameter Tuning
 Grid Search with Cross-Validation: Tuning hyperparameters for each model to optimize performance. Using 5-fold/ 3-fold cross-validation ensures that the model generalizes well to unseen data. 
 Evaluation Metrics: Using accuracy, precision, recall, and F1-score to assess and compare the performance of each model. While all of these metrics are very important, recall was priortitized because it is crucial to minimize false negatives since this can result in a patient not receiving necessary treatments.
 
-5. Feature Importance
+#### 5. Feature Importance
 Logistic Regression Coefficients: Analyzing the magnitude and direction of coefficients to determine feature importance.
 Random Forest Feature Importance: Using feature importance scores from the Random Forest model to identify significant predictors.
 Visualization and Reporting
@@ -77,7 +85,7 @@ Bar Plots: Comparing the performance metrics (accuracy, precision, recall, F1-sc
 Feature Importance Plots: Visualizing the importance of different features as determined by the models.
 
 
-#### Results
+### Results
 
 ![comparison_metrics](https://github.com/user-attachments/assets/6a41c0fc-d8ec-4032-b2d7-eddaba83f0d1)
 
@@ -85,7 +93,7 @@ Feature Importance Plots: Visualizing the importance of different features as de
 Random Forest did the best on all the metrics except for Recall. KNN did the best for recall. Since Random Forest seems to have performed the best overall, the recommendations will be made using this model.
 
 
-### Random Forest Performance Analysis
+#### Random Forest Performance Analysis
 **1. Performance Metrics:**
 
 Random Forest vs. KNN Recall: KNN achieved the highest recall, indicating that it was more successful in identifying all relevant cases of diabetes (i.e., true positives). This is important for applications where missing a positive case (false negative) can have serious consequences.
@@ -100,18 +108,18 @@ Random Forest is an ensemble method that combines the predictions of multiple de
 ![feature_rf](https://github.com/user-attachments/assets/1e39672a-a871-411a-9d1d-9ba308190da7)
 
 
-Factors Increasing Likelihood of Diabetes:
+**Factors Increasing Likelihood of Diabetes:**
 
 1. Cholesterol Check: Regular cholesterol checks may indicate an awareness or management of health conditions that could be associated with diabetes. If individuals have checked their cholesterol, it might be due to existing health issues, including diabetes.
 2. High Blood Pressure and High Cholesterol: These conditions are well-known risk factors for diabetes. They often co-occur with diabetes and contribute to its development.
 3. General Health: Poor general health is a broad indicator that can encompass multiple health issues, including diabetes. Individuals reporting poor health may be more likely to have diabetes.
 
-Factors Decreasing Likelihood of Diabetes:
+**Factors Decreasing Likelihood of Diabetes:**
 
 1. Eating Fruits and Vegetables: A diet rich in fruits and vegetables is associated with lower risks of chronic diseases, including diabetes. These foods are high in fiber and nutrients that can help regulate blood sugar levels.
 2. Physical Activity: Regular physical activity is crucial for maintaining a healthy weight and improving insulin sensitivity, both of which reduce the risk of diabetes.
 
-### Conclusion and Recommendations
+## Conclusion and Recommendations
 
 **4. Conclusion:**
 
@@ -123,7 +131,7 @@ Early Intervention: For individuals with known risk factors such as high blood p
 Lifestyle Modifications: Implement programs or initiatives focused on improving diet and increasing physical activity. This could include public health campaigns, community fitness programs, and nutritional counseling.
 Regular Monitoring: Encourage regular health check-ups and screenings for those with risk factors, to track their health status and intervene promptly if needed.
 
-#### Next steps
+## Next steps
 
 1. Advanced Modeling Techniques : Ensemble Methods: Explore advanced ensemble techniques such as Gradient Boosting (e.g., XGBoost, LightGBM) and AdaBoost, which often provide superior performance by combining the strengths of multiple models.
 
@@ -135,10 +143,10 @@ Regular Monitoring: Encourage regular health check-ups and screenings for those 
 
 5. Continuous Learning: Implement a system for continuous learning where the model can be retrained periodically with new data to adapt to any changes and maintain accuracy.
 
-#### Outline of project
+## Outline of project
 
 [Full Jupyter Notebook located here.](https://github.com/anjana250/capstone/blob/main/Diabetes_Capstone.ipynb)
 
-##### Contact and Further Information
+#### Contact and Further Information
 
 [You can reach me on LinkedIn!](https://www.linkedin.com/in/anjana-cox-593b407a/)
