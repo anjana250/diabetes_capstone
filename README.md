@@ -146,7 +146,7 @@ Regular Monitoring: Encourage regular health check-ups and screenings for those 
 
 ## Outline of project
 
-[Full Jupyter Notebook located here.](https://github.com/anjana250/capstone/blob/main/Diabetes_Capstone.ipynb)
+[Full Jupyter Notebook located here.](https://github.com/anjana250/diabetes_capstone/blob/main/Diabetes_Capstone.ipynb)
 
 #### Contact and Further Information
 
